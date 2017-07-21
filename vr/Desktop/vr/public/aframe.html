@@ -1,0 +1,108 @@
+<html>
+    <head>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/aframe.min.js"></script>
+<script>
+
+$(document).ready(function (){
+	console.log("ready @@") ;
+
+  var getLoopLeft = function() {
+    $.get( "leftbase64", function( data ) {
+      $("#leftCam").attr("src", "data:image/jpeg;base64," + data) ;
+      getLoopLeft() ;
+    });
+  } ;
+
+  var getLoopRight= function() {
+    $.get( "rightbase64", function( data ) {
+      $("#rightCam").attr("src", "data:image/jpeg;base64," + data) ;
+      getLoopRight() ;
+    });
+  } ;
+
+  getLoopRight() ;
+  getLoopLeft() ;
+});
+
+
+
+
+
+
+
+</script>
+<style>
+div.cam {
+	width: 320 ;
+	height: 320 ;
+	float:left ;
+  margin: 2px ;
+  background-color: #ddd ;
+}
+
+div.cam img {
+  width: 320px ;
+  height: 240px ;
+}
+div.cam span {
+	width: 320px ; ;
+	display: block ;
+  text-align: center ;
+}
+
+div.cam span.name {
+  font-size: x-large ;
+  text-align: center ;
+  font-weight: bold;
+  background-color: #000 ;
+  color : #fff ;
+  margin-bottom: 1px ;
+}
+</style>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+
+      <div style="display:none;">
+    	<h1>view result</h1>
+    	<div id="template" style="display:none;">
+
+			<div class="cam">
+				<span class="name">Name</span>
+				<img src="" />
+				<span class="time">Time</span>
+				<span class="msg">MSG</span>
+
+			</div>
+    	</div>
+    	<HR>
+        <img src="" id="frame" style="" />
+        <div id="log"></div>
+
+      </div>
+      <a-scene>
+      <a-assets>
+
+      </a-assets>
+
+      <a-text value="Hello, World!" color="#00f" position="0 0.9 -2"></a-text>
+
+      <a-circle color="#a00" position="0 0 -10" radius="3">
+      </a-circle>
+      <a-curvedimage id="leftCam" src="" height="3" radius="2" theta-length="150"
+               rotation="0 90 0" position="1.9 1 -4" scale="1 1 1"></a-curvedimage>
+
+      <a-curvedimage id="rightCam" src="" height="3" radius="2" theta-length="150"
+              rotation="0 90 0" position="-1.9 1 -4" scale="1 1 1"></a-curvedimage>
+
+      <a-plane src="https://i.imgur.com/mYmmbrp.jpg" position="0 -0.5 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      <a-sky id="mysky" color="#ECECEC"></a-sky>
+
+      <a-light type="ambient" color="#445451"></a-light>
+      <a-light type="point" intensity="2" position="2 4 4"></a-light>
+    </a-scene>
+
+    </body>
+</html>

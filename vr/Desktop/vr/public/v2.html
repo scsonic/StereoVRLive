@@ -2,6 +2,8 @@
     <head>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/aframe.min.js"></script>
+    <script type="text/javascript" src="js/aframe-stereo-component.min.js"></script>
+
 <script>
 
 
@@ -203,7 +205,7 @@ div.cam span.name {
 
       </div>
 
-      <img id="leftCamSrc" />
+      <img id="leftCamSrc" style="display:none;"/>
       <a-scene>
       <a-assets>
 
@@ -215,10 +217,10 @@ div.cam span.name {
       </a-circle>
 
       <a-curvedimage id="leftCam" src="" height="3" radius="2" theta-length="150"
-               rotation="0 90 0" position="1.8 1 -5" scale="1 1 1"></a-curvedimage>
+               rotation="0 90 0" position="1.8 1 -5" scale="1 1 1" stereo="eye:left"></a-curvedimage>
 
       <a-curvedimage id="rightCam" src="" height="3" radius="2" theta-length="150"
-              rotation="0 90 0" position="-1.8 1 -5" scale="1 1 1"></a-curvedimage>
+              rotation="0 90 0" position="-1.8 1 -5" scale="1 1 1" stereo="eye:right"></a-curvedimage>
 
       <a-plane src="https://i.imgur.com/mYmmbrp.jpg" position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
       <a-sky id="mysky" color="#ECECEC"></a-sky>

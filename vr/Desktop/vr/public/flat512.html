@@ -1,0 +1,64 @@
+<html>
+    <head>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+<script>
+
+var reloadImage = function( name ) {
+  var _img = document.getElementById( name + 'CamSrc');
+  _img.onload = function() {
+      _img.src = "/" + name + "512?" + new Date().getTime() ;
+  }
+  _img.src = "/" + name + "512?"  + new Date().getTime() ;
+}
+
+$(document).ready(function (){
+  	console.log("ready @@") ;
+    reloadImage( "left" ) ;
+    reloadImage( "right" ) ;
+});
+
+
+</script>
+<style>
+  body {
+    padding: 0 ;
+  }
+  div.container {
+    margin: 0 ;
+    padding: 0 ;
+    width: 100% ;
+    height: 100% ;
+    background: #00f ;
+  }
+  div.leftDiv {
+     width: 50% ;
+     height: 100% ;
+     float: left ;
+     background: #ff0 ;
+  }
+  div.rightDiv {
+     width: 50% ;
+     height: 100% ;
+     float: right ;
+     background: #0f0 ;
+  }
+
+  #leftCamSrc, #rightCamSrc {
+      width: 100% ;
+      height: 100% ;
+  }
+</style>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+    <body>
+      <div class=container>
+          <div class="leftDiv">
+            <img id="leftCamSrc" />
+          </div>
+          <div class="rightDiv">
+            <img id="rightCamSrc" />
+          </div>
+      </div>
+    </body>
+</html>
